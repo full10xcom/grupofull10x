@@ -292,6 +292,215 @@ h1{
   #grid::after{animation:none!important;}
   .badge,.gt,h1,.sub,.ctas,.urgency,.proof,.segs{opacity:1!important;transform:none!important;filter:none!important;}
 }
+
+/* ═══ POPUP OVERLAY ═══ */
+#popup-overlay{
+  position:fixed;inset:0;z-index:999;
+  background:rgba(8,18,32,.72);
+  backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1rem;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+#popup-overlay.open{opacity:1;pointer-events:all;}
+
+/* ── POPUP CARD ── */
+#popup{
+  position:relative;
+  width:100%;max-width:480px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 32px 80px rgba(13,27,42,.22),0 0 0 1px rgba(58,123,191,.1);
+  overflow:hidden;
+  transform:translateY(28px) scale(.97);
+  transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s ease;
+  opacity:0;
+}
+#popup-overlay.open #popup{transform:none;opacity:1;}
+
+/* progress bar */
+#popup-bar-bg{
+  height:4px;background:rgba(193,213,237,.3);
+}
+#popup-bar{
+  height:100%;width:33.3%;
+  background:linear-gradient(90deg,#1a4f80,#3a7bbf,#c1d5ed);
+  transition:width .5s cubic-bezier(.22,1,.36,1);
+}
+
+/* header */
+#popup-head{
+  padding:1.5rem 1.75rem .75rem;
+  border-bottom:1px solid rgba(193,213,237,.2);
+}
+.popup-step-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#3a7bbf;margin-bottom:.5rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+.popup-step-label::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:#3a7bbf;
+  animation:pip 2.4s ease-in-out infinite alternate;
+}
+#popup-title{font-size:1.18rem;font-weight:800;color:#0d1b2a;line-height:1.25;margin-bottom:.22rem;}
+#popup-sub{font-size:.82rem;color:#4b5563;line-height:1.5;}
+
+/* close btn */
+#popup-close{
+  position:absolute;top:.9rem;right:.9rem;
+  width:2rem;height:2rem;border-radius:50%;
+  background:rgba(193,213,237,.15);border:none;cursor:pointer;
+  display:grid;place-items:center;
+  color:#4b5563;font-size:1rem;
+  transition:background .18s ease;
+}
+#popup-close:hover{background:rgba(193,213,237,.35);}
+
+/* steps wrapper */
+#popup-steps{
+  padding:1.5rem 1.75rem;
+  min-height:200px;
+}
+.pstep{display:none;flex-direction:column;gap:1rem;animation:stepIn .35s ease forwards;}
+.pstep.active{display:flex;}
+@keyframes stepIn{
+  from{opacity:0;transform:translateX(18px);}
+  to{opacity:1;transform:none;}
+}
+
+/* field */
+.pfield{display:flex;flex-direction:column;gap:.38rem;}
+.pfield label{
+  font-size:.76rem;font-weight:700;color:#0d1b2a;letter-spacing:.01em;
+}
+.pfield input,.pfield select,.pfield textarea{
+  width:100%;padding:.78rem 1rem;
+  background:#f5f9ff;
+  border:1.5px solid rgba(193,213,237,.45);
+  border-radius:12px;
+  font-size:.93rem;font-family:inherit;color:#0d1b2a;
+  outline:none;
+  transition:border-color .18s,box-shadow .18s;
+}
+.pfield input:focus,.pfield select:focus,.pfield textarea:focus{
+  border-color:#3a7bbf;
+  box-shadow:0 0 0 3px rgba(58,123,191,.1);
+  background:#fff;
+}
+.pfield input::placeholder{color:#9ca3af;}
+.pfield select{cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233a7bbf' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 1rem center;background-size:12px;
+  padding-right:2.5rem;
+}
+
+/* outros field */
+#outros-wrap{margin-top:.4rem;}
+#outros-wrap textarea{
+  resize:none;height:64px;font-size:.88rem;
+}
+
+/* faturamento pills */
+.fat-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;
+  margin-top:.1rem;
+}
+.fat-pill{
+  padding:.62rem .8rem;border-radius:10px;
+  border:1.5px solid rgba(193,213,237,.4);
+  background:#f5f9ff;
+  font-size:.82rem;font-weight:600;color:#4b5563;
+  cursor:pointer;text-align:center;
+  transition:all .18s ease;
+  user-select:none;
+}
+.fat-pill:hover{border-color:rgba(58,123,191,.4);color:#0d1b2a;}
+.fat-pill.selected{
+  border-color:#3a7bbf;background:rgba(58,123,191,.08);
+  color:#1a4f80;
+}
+
+/* footer */
+#popup-foot{
+  padding:.75rem 1.75rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+}
+.popup-dots{display:flex;gap:.4rem;}
+.popup-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(193,213,237,.5);
+  transition:background .25s ease,transform .25s ease;
+}
+.popup-dot.active{background:#3a7bbf;transform:scale(1.2);}
+.popup-dot.done{background:#2d6aa0;}
+
+#popup-btn-back{
+  padding:.65rem 1.2rem;border-radius:999px;
+  background:transparent;border:1.5px solid rgba(193,213,237,.5);
+  color:#4b5563;font-size:.84rem;font-weight:600;cursor:pointer;
+  transition:all .18s ease;
+  display:none;
+}
+#popup-btn-back:hover{border-color:rgba(58,123,191,.4);color:#0d1b2a;}
+
+#popup-btn-next{
+  position:relative;overflow:hidden;
+  padding:.82rem 1.85rem;border-radius:999px;
+  background:linear-gradient(130deg,#c1d5ed,#3a7bbf,#c1d5ed);
+  background-size:300% 100%;background-position:0 50%;
+  border:none;color:#fff;font-size:.9rem;font-weight:700;
+  cursor:pointer;
+  box-shadow:0 10px 28px rgba(58,123,191,.28);
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;
+  animation:bpulse 5s ease-in-out infinite alternate;
+}
+#popup-btn-next:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 36px rgba(58,123,191,.34);}
+#popup-btn-next:active{transform:scale(.98);}
+
+/* success screen */
+#popup-success{
+  display:none;flex-direction:column;align-items:center;
+  padding:2.5rem 1.75rem 2rem;text-align:center;gap:1rem;
+}
+#popup-success.show{display:flex;animation:stepIn .4s ease forwards;}
+.success-icon{
+  width:4rem;height:4rem;border-radius:50%;
+  background:linear-gradient(135deg,#1a4f80,#3a7bbf);
+  display:grid;place-items:center;
+  box-shadow:0 12px 30px rgba(58,123,191,.3);
+  font-size:1.5rem;color:#fff;
+}
+.success-title{font-size:1.25rem;font-weight:800;color:#0d1b2a;}
+.success-sub{font-size:.9rem;color:#4b5563;line-height:1.6;max-width:320px;}
+.success-wa{
+  margin-top:.5rem;
+  padding:.82rem 1.85rem;border-radius:999px;
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
+  border:none;color:#fff;font-size:.9rem;font-weight:700;
+  cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.5rem;
+  box-shadow:0 10px 28px rgba(37,211,102,.28);
+  transition:transform .2s ease;
+}
+.success-wa:hover{transform:translateY(-2px);}
+
+/* error state */
+.pfield input.err,.pfield select.err{
+  border-color:#ef4444;
+  box-shadow:0 0 0 3px rgba(239,68,68,.1);
+}
+.field-err{font-size:.72rem;color:#ef4444;margin-top:.1rem;}
+
+/* mobile */
+@media(max-width:500px){
+  #popup{border-radius:20px;}
+  #popup-head{padding:1.2rem 1.25rem .65rem;}
+  #popup-steps{padding:1.2rem 1.25rem;}
+  #popup-foot{padding:.65rem 1.25rem 1.25rem;}
+  .fat-grid{grid-template-columns:repeat(2,1fr);}
+}
 </style>
 </head>
 <body>
@@ -409,5 +618,333 @@ h1{
   document.querySelectorAll('.pn[data-count]').forEach(function(el){io.observe(el);});
 })();
 </script>
+
+<!-- ═══ POPUP APLICAÇÃO ═══ -->
+<div id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div id="popup">
+
+    <!-- progress bar -->
+    <div id="popup-bar-bg"><div id="popup-bar"></div></div>
+
+    <!-- close -->
+    <button id="popup-close" aria-label="Fechar">✕</button>
+
+    <!-- header -->
+    <div id="popup-head">
+      <div class="popup-step-label" id="popup-step-label">Etapa 1 de 3</div>
+      <div id="popup-title">Quem é você?</div>
+      <div id="popup-sub">Vamos começar com o básico para eu entender seu perfil.</div>
+    </div>
+
+    <!-- steps -->
+    <div id="popup-steps">
+
+      <!-- ETAPA 1: Nome + WhatsApp -->
+      <div class="pstep active" id="step-1">
+        <div class="pfield">
+          <label for="f-nome">Seu nome completo</label>
+          <input type="text" id="f-nome" placeholder="Ex: João Silva" autocomplete="name"/>
+        </div>
+        <div class="pfield">
+          <label for="f-tel">WhatsApp com DDD</label>
+          <input type="tel" id="f-tel" placeholder="(62) 99999-9999" autocomplete="tel"/>
+        </div>
+      </div>
+
+      <!-- ETAPA 2: Email + Instagram -->
+      <div class="pstep" id="step-2">
+        <div class="pfield">
+          <label for="f-email">Seu melhor e-mail</label>
+          <input type="email" id="f-email" placeholder="voce@empresa.com" autocomplete="email"/>
+        </div>
+        <div class="pfield">
+          <label for="f-ig">Instagram <span style="color:#9ca3af;font-weight:400">(@)</span></label>
+          <input type="text" id="f-ig" placeholder="@seuperfil"/>
+        </div>
+      </div>
+
+      <!-- ETAPA 3: Modelo + Faturamento -->
+      <div class="pstep" id="step-3">
+        <div class="pfield">
+          <label for="f-modelo">Modelo de negócio</label>
+          <select id="f-modelo">
+            <option value="" disabled selected>Selecione seu modelo</option>
+            <option value="infoproduto">Infoproduto / Curso online</option>
+            <option value="ecommerce">E-commerce / Loja virtual</option>
+            <option value="servico">Prestação de serviços</option>
+            <option value="saas">SaaS / Software</option>
+            <option value="agencia">Agência de marketing</option>
+            <option value="fintech">Fintech / Financeiro</option>
+            <option value="local">Negócio local / Físico</option>
+            <option value="outros">Outros</option>
+          </select>
+          <div id="outros-wrap" style="display:none;">
+            <textarea id="f-outros" placeholder="Descreva seu modelo de negócio..."></textarea>
+          </div>
+        </div>
+        <div class="pfield">
+          <label>Faturamento mensal atual</label>
+          <div class="fat-grid" id="fat-grid">
+            <div class="fat-pill" data-val="até 10k">Até R$ 10k</div>
+            <div class="fat-pill" data-val="10k-50k">R$ 10k – 50k</div>
+            <div class="fat-pill" data-val="50k-150k">R$ 50k – 150k</div>
+            <div class="fat-pill" data-val="150k-500k">R$ 150k – 500k</div>
+            <div class="fat-pill" data-val="500k-1M">R$ 500k – 1M</div>
+            <div class="fat-pill" data-val="acima 1M">Acima de R$ 1M</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /steps -->
+
+    <!-- success -->
+    <div id="popup-success">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Aplicação enviada!</div>
+      <div class="success-sub">Recebi suas informações. Entrarei em contato pelo WhatsApp em até 2h úteis para agendar uma conversa.</div>
+      <a id="success-wa-btn" href="" target="_blank" rel="noopener noreferrer" class="success-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp agora
+      </a>
+    </div>
+
+    <!-- footer -->
+    <div id="popup-foot">
+      <div class="popup-dots">
+        <div class="popup-dot active" id="dot-1"></div>
+        <div class="popup-dot" id="dot-2"></div>
+        <div class="popup-dot" id="dot-3"></div>
+      </div>
+      <div style="display:flex;gap:.5rem;">
+        <button id="popup-btn-back">← Voltar</button>
+        <button id="popup-btn-next">Continuar →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var WA_NUMBER = '5562999281417';
+  var WA_MSG    = encodeURIComponent('Quero saber mais sobre a sua consultoria!');
+
+  var overlay  = document.getElementById('popup-overlay');
+  var bar      = document.getElementById('popup-bar');
+  var lbl      = document.getElementById('popup-step-label');
+  var title    = document.getElementById('popup-title');
+  var sub      = document.getElementById('popup-sub');
+  var steps    = document.querySelectorAll('.pstep');
+  var dots     = document.querySelectorAll('.popup-dot');
+  var btnBack  = document.getElementById('popup-btn-back');
+  var btnNext  = document.getElementById('popup-btn-next');
+  var foot     = document.getElementById('popup-foot');
+  var success  = document.getElementById('popup-success');
+  var psteps   = document.getElementById('popup-steps');
+  var phead    = document.getElementById('popup-head');
+
+  var current = 1;
+  var TOTAL   = 3;
+  var fatVal  = '';
+
+  var META = {
+    1:{ label:'Etapa 1 de 3', title:'Quem é você?',           sub:'Vamos começar com o básico para eu entender seu perfil.' },
+    2:{ label:'Etapa 2 de 3', title:'Como te encontro?',      sub:'Seu e-mail e Instagram para entrarmos em contato.' },
+    3:{ label:'Etapa 3 de 3', title:'Sobre o seu negócio',    sub:'Me ajuda a entender onde você está para eu entender onde pode chegar.' },
+  };
+
+  /* ── OPEN ── */
+  function openPopup(){
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    setTimeout(function(){ document.getElementById('f-nome').focus(); },350);
+  }
+
+  /* ── CLOSE ── */
+  function closePopup(){
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  /* intercept all .btn-p clicks */
+  document.querySelectorAll('.btn-p').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      openPopup();
+    });
+  });
+  document.getElementById('popup-close').addEventListener('click', closePopup);
+  overlay.addEventListener('click',function(e){ if(e.target===overlay) closePopup(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closePopup(); });
+
+  /* ── UPDATE UI ── */
+  function updateStep(){
+    var pct = (current/TOTAL)*100;
+    bar.style.width = pct+'%';
+    lbl.textContent = META[current].label;
+    title.textContent = META[current].title;
+    sub.textContent = META[current].sub;
+
+    steps.forEach(function(s,i){
+      s.classList.toggle('active', i===current-1);
+    });
+    dots.forEach(function(d,i){
+      d.classList.remove('active','done');
+      if(i===current-1) d.classList.add('active');
+      if(i<current-1)   d.classList.add('done');
+    });
+
+    btnBack.style.display = current>1 ? 'inline-flex':'none';
+    btnNext.textContent   = current<TOTAL ? 'Continuar →' : 'Enviar aplicação ✓';
+  }
+
+  /* ── VALIDATE ── */
+  function clearErr(id){ var el=document.getElementById(id); if(el){ el.classList.remove('err'); var e=el.parentNode.querySelector('.field-err'); if(e) e.remove(); } }
+  function setErr(id,msg){ var el=document.getElementById(id); if(!el)return false; el.classList.add('err'); var e=document.createElement('span'); e.className='field-err'; e.textContent=msg; el.parentNode.appendChild(e); return false; }
+
+  function validate(){
+    var ok=true;
+    if(current===1){
+      clearErr('f-nome'); clearErr('f-tel');
+      var n=document.getElementById('f-nome').value.trim();
+      var t=document.getElementById('f-tel').value.trim();
+      if(!n){ ok=setErr('f-nome','Digite seu nome'); }
+      if(!t||t.replace(/\D/g,'').length<10){ ok=setErr('f-tel','Digite um WhatsApp válido'); }
+    }
+    if(current===2){
+      clearErr('f-email'); clearErr('f-ig');
+      var em=document.getElementById('f-email').value.trim();
+      var ig=document.getElementById('f-ig').value.trim();
+      if(!em||!/^[^@]+@[^@]+\.[^@]+$/.test(em)){ ok=setErr('f-email','Digite um e-mail válido'); }
+      if(!ig){ ok=setErr('f-ig','Digite seu @Instagram'); }
+    }
+    if(current===3){
+      var m=document.getElementById('f-modelo').value;
+      if(!m){ ok=setErr('f-modelo','Selecione seu modelo de negócio'); }
+      if(!fatVal){ var grd=document.getElementById('fat-grid'); grd.style.outline='2px solid #ef4444'; grd.style.borderRadius='10px'; setTimeout(function(){ grd.style.outline=''; },1500); ok=false; }
+    }
+    return ok;
+  }
+
+  /* ── NAV ── */
+  btnNext.addEventListener('click',function(){
+    if(!validate()) return;
+    if(current<TOTAL){
+      current++;
+      updateStep();
+      // focus first field of new step
+      var activeStep = document.getElementById('step-'+current);
+      var firstInput = activeStep && activeStep.querySelector('input,select');
+      if(firstInput) setTimeout(function(){ firstInput.focus(); },350);
+    } else {
+      submitForm();
+    }
+  });
+
+  btnBack.addEventListener('click',function(){
+    if(current>1){ current--; updateStep(); }
+  });
+
+  /* ── MODELO: show outros ── */
+  document.getElementById('f-modelo').addEventListener('change',function(){
+    var wrap=document.getElementById('outros-wrap');
+    wrap.style.display = this.value==='outros' ? 'block' : 'none';
+    if(this.value==='outros') document.getElementById('f-outros').focus();
+  });
+
+  /* ── FATURAMENTO PILLS ── */
+  document.getElementById('fat-grid').addEventListener('click',function(e){
+    var pill=e.target.closest('.fat-pill');
+    if(!pill) return;
+    document.querySelectorAll('.fat-pill').forEach(function(p){ p.classList.remove('selected'); });
+    pill.classList.add('selected');
+    fatVal = pill.getAttribute('data-val');
+    document.getElementById('fat-grid').style.outline='';
+  });
+
+  /* ── PHONE MASK ── */
+  document.getElementById('f-tel').addEventListener('input',function(){
+    var v=this.value.replace(/\D/g,'').slice(0,11);
+    if(v.length<=2) this.value=v.length?'('+v:'';
+    else if(v.length<=6) this.value='('+v.slice(0,2)+') '+v.slice(2);
+    else if(v.length<=10) this.value='('+v.slice(0,2)+') '+v.slice(2,6)+'-'+v.slice(6);
+    else this.value='('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+  });
+
+  /* ── INSTAGRAM NORMALIZE ── */
+  document.getElementById('f-ig').addEventListener('blur',function(){
+    var v=this.value.trim();
+    if(v && v[0]!=='@') this.value='@'+v;
+  });
+
+  /* ── SUBMIT ── */
+  /* 👇 COLE AQUI A URL DO SEU APPS SCRIPT APÓS IMPLANTAR */
+  var SHEETS_URL = 'COLE_SUA_URL_AQUI';
+
+  function showSuccess(nome, tel, modeloFinal){
+    var msg = encodeURIComponent(
+      'Olá Julio! Preenchi o formulário de aplicação:\n\n'+
+      '👤 Nome: '+nome+'\n'+
+      '📱 WhatsApp: '+tel+'\n'+
+      '📧 E-mail: '+document.getElementById('f-email').value.trim()+'\n'+
+      '📸 Instagram: '+document.getElementById('f-ig').value.trim()+'\n'+
+      '💼 Negócio: '+modeloFinal+'\n'+
+      '💰 Faturamento: '+fatVal+'\n\n'+
+      'Quero saber mais sobre a sua consultoria!'
+    );
+    psteps.style.display='none';
+    phead.style.display='none';
+    foot.style.display='none';
+    bar.style.width='100%';
+    success.classList.add('show');
+    document.getElementById('success-wa-btn').href = 'https://wa.me/'+WA_NUMBER+'?text='+msg;
+  }
+
+  function submitForm(){
+    var nome   = document.getElementById('f-nome').value.trim();
+    var tel    = document.getElementById('f-tel').value.trim();
+    var email  = document.getElementById('f-email').value.trim();
+    var ig     = document.getElementById('f-ig').value.trim();
+    var modelo = document.getElementById('f-modelo').value;
+    var outros = document.getElementById('f-outros').value.trim();
+    var modeloFinal = modelo==='outros'
+      ? ('Outros: '+outros)
+      : document.getElementById('f-modelo').options[document.getElementById('f-modelo').selectedIndex].text;
+
+    /* ── Disable button while sending ── */
+    btnNext.disabled = true;
+    btnNext.textContent = 'Enviando...';
+
+    /* ── Send to Google Sheets ── */
+    if(SHEETS_URL && SHEETS_URL !== 'COLE_SUA_URL_AQUI'){
+      fetch(SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome:        nome,
+          whatsapp:    tel,
+          email:       email,
+          instagram:   ig,
+          modelo:      modeloFinal,
+          faturamento: fatVal
+        })
+      })
+      .catch(function(err){ console.warn('Sheets erro:', err); })
+      .finally(function(){
+        btnNext.disabled = false;
+        showSuccess(nome, tel, modeloFinal);
+      });
+    } else {
+      /* fallback: sem URL configurada, só mostra sucesso */
+      btnNext.disabled = false;
+      showSuccess(nome, tel, modeloFinal);
+    }
+  }
+
+  updateStep();
+})();
+</script>
+
 </body>
 </html>
