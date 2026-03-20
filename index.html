@@ -4,20 +4,27 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Julio Henrique — CMO & Founder Full10X</title>
-<meta name="description" content="Tenha uma Consultoria e Análise Avançado no Marketing do seu Negócio. +R$10M gerenciados. Eu identifico o gargalo e resolvo."/>
+<meta name="description" content="Tenha uma Consultoria e Análise Avançada no Marketing do seu Negócio. +R$10M gerenciados. Eu identifico o gargalo e resolvo."/>
 <meta property="og:title" content="Julio Henrique — Consultoria CMO Full10X"/>
 <meta property="og:description" content="Seu negócio já vende mas não escala. O problema não é investimento — é gargalo."/>
 <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://full10x.com.br"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta name="robots" content="index, follow"/>
 <meta name="theme-color" content="#e8f3fb"/>
+<link rel="canonical" href="https://full10x.com.br"/>
+
+<!-- Preconnect & Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
 <style>
 /* ─── RESET & BASE ─── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  font-family:'Inter',system-ui,sans-serif;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
   background:#e8f3fb;color:#0d1b2a;
   overflow-x:hidden;min-height:100svh;
   -webkit-font-smoothing:antialiased;
@@ -37,31 +44,36 @@ body{
   --s3:0 20px 50px rgba(13,27,42,.12),0 8px 24px rgba(58,123,191,.1);
 }
 
+/* ─── SELECTION ─── */
+::selection{background:rgba(58,123,191,.2);color:var(--ink)}
+
 /* ─── GRID BACKGROUND ─── */
-#grid{
+.jh-g{
   position:fixed;inset:0;z-index:0;pointer-events:none;
   background-color:var(--bg);
   background-image:
     linear-gradient(rgba(255,255,255,.74) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,.74) 1px,transparent 1px);
   background-size:44px 44px;
+  contain:strict;
 }
-#grid::after{
+.jh-g::after{
   content:'';position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(110deg,transparent 22%,rgba(255,255,255,.52) 50%,transparent 78%);
   background-size:300% 100%;
-  animation:sweep 8s ease-in-out infinite;
+  animation:jh-sw 8s ease-in-out infinite;
 }
-@keyframes sweep{0%{background-position:130% 0}100%{background-position:-130% 0}}
+@keyframes jh-sw{0%{background-position:130% 0}100%{background-position:-130% 0}}
 
 /* grain overlay */
-#grain{
+.jh-gr{
   position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.013;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  contain:strict;
 }
 
 /* ─── HERO SECTION ─── */
-#hero{
+.jh-hr{
   position:relative;z-index:2;
   min-height:100svh;
   display:flex;align-items:center;justify-content:center;
@@ -70,7 +82,7 @@ body{
 }
 
 /* top ambient glow */
-#hero::before{
+.jh-hr::before{
   content:'';position:absolute;top:-12%;left:50%;transform:translateX(-50%);
   width:min(880px,140%);height:560px;
   background:radial-gradient(ellipse at 50% 0%,rgba(58,123,191,.14) 0%,transparent 68%);
@@ -78,7 +90,7 @@ body{
   will-change:transform;contain:strict;
 }
 
-.hero-wrap{
+.jh-hw{
   position:relative;z-index:1;text-align:center;
   width:100%;max-width:780px;margin-inline:auto;
   display:flex;flex-direction:column;align-items:center;gap:0;
@@ -86,7 +98,7 @@ body{
 }
 
 /* ─── BADGE ─── */
-.badge{
+.jh-bd{
   display:inline-flex;align-items:center;gap:.42rem;
   padding:.36rem .95rem;border-radius:999px;
   background:rgba(255,255,255,.84);
@@ -95,49 +107,49 @@ body{
   font-size:.75rem;font-weight:600;color:var(--ink);letter-spacing:.01em;
   box-shadow:0 4px 14px rgba(13,27,42,.06),inset 0 1px 0 rgba(255,255,255,.9);
   margin-bottom:clamp(1.4rem,3.5vh,2rem);
-  opacity:0;animation:fu .6s ease .06s forwards;
+  opacity:0;animation:jh-fu .6s ease .06s forwards;
 }
-.badge-pip{
+.jh-bp{
   width:5px;height:5px;border-radius:50%;
   background:var(--b);flex-shrink:0;
-  animation:pip 2.4s ease-in-out infinite alternate;
+  animation:jh-pip 2.4s ease-in-out infinite alternate;
 }
-@keyframes pip{from{opacity:.3;transform:scale(.7)}to{opacity:1;transform:scale(1.18)}}
+@keyframes jh-pip{from{opacity:.3;transform:scale(.7)}to{opacity:1;transform:scale(1.18)}}
 
 /* ─── H1 ─── */
-h1{
+.jh-hr h1{
   font-size:clamp(2.7rem,8.5vw,5.2rem);
   font-weight:900;line-height:1.03;letter-spacing:-.045em;
   margin-bottom:clamp(1.1rem,2.8vh,1.6rem);
-  opacity:0;animation:fu .7s ease .18s forwards;
+  opacity:0;animation:jh-fu .7s ease .18s forwards;
 }
-.gt{
+.jh-gt{
   display:block;
   background:linear-gradient(90deg,#0d1b2a 0%,#3a7bbf 28%,#c1d5ed 48%,#3a7bbf 68%,#0d1b2a 100%);
   background-size:240% 100%;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:tflow 8s linear infinite;
+  animation:jh-tf 8s linear infinite;
 }
-@keyframes tflow{from{background-position:0 50%}to{background-position:200% 50%}}
-.gd{display:block;color:var(--ink);}
+@keyframes jh-tf{from{background-position:0 50%}to{background-position:200% 50%}}
+.jh-gd{display:block;color:var(--ink)}
 
 /* ─── SUBTITLE ─── */
-.sub{
+.jh-sub{
   font-size:clamp(.97rem,2.1vw,1.1rem);
   color:var(--muted);line-height:1.74;
   max-width:460px;
   margin-bottom:clamp(1.8rem,4.5vh,2.6rem);
-  opacity:0;animation:fu .7s ease .3s forwards;
+  opacity:0;animation:jh-fu .7s ease .3s forwards;
 }
 
 /* ─── BUTTONS ─── */
-.ctas{
+.jh-ctas{
   display:flex;align-items:center;justify-content:center;
   gap:.65rem;flex-wrap:wrap;
   margin-bottom:.7rem;
-  opacity:0;animation:fu .7s ease .42s forwards;
+  opacity:0;animation:jh-fu .7s ease .42s forwards;
 }
-.btn{
+.jh-btn{
   position:relative;display:inline-flex;align-items:center;justify-content:center;
   gap:.46rem;border-radius:999px;font-weight:700;font-size:.93rem;
   cursor:pointer;text-decoration:none;white-space:nowrap;
@@ -146,47 +158,47 @@ h1{
   -webkit-tap-highlight-color:transparent;overflow:hidden;
 }
 /* primary */
-.btn-p{
+.jh-bp-c{
   padding:.9rem 2.1rem;font-size:.93rem;color:#fff;
   background:linear-gradient(130deg,#c1d5ed,#3a7bbf,#c1d5ed);
   background-size:300% 100%;background-position:0 50%;
   border:1px solid rgba(58,123,191,.32);
   box-shadow:0 12px 34px rgba(58,123,191,.3),inset 0 1px 0 rgba(255,255,255,.18);
-  animation:bpulse 5s ease-in-out infinite alternate;
+  animation:jh-bpl 5s ease-in-out infinite alternate;
 }
-@keyframes bpulse{from{background-position:0 50%}to{background-position:100% 50%}}
-.btn-p::before{
+@keyframes jh-bpl{from{background-position:0 50%}to{background-position:100% 50%}}
+.jh-bp-c::before{
   content:'';position:absolute;inset:0;border-radius:inherit;
   background:linear-gradient(180deg,rgba(255,255,255,.15),transparent);pointer-events:none;
 }
-.btn-p::after{
+.jh-bp-c::after{
   content:'';position:absolute;top:50%;transform:translateY(-50%);
   left:var(--bx,-40%);width:14%;height:64%;
   background:rgba(212,231,245,.88);filter:blur(10px);opacity:.4;pointer-events:none;
 }
-.btn-p>*{position:relative;z-index:1;}
-.btn-p:hover{transform:translateY(-3px) scale(1.025);box-shadow:0 20px 44px rgba(58,123,191,.34);}
-.btn-p:active{transform:scale(.97);}
-/* ghost — clearly secondary */
-.btn-g{
+.jh-bp-c>*{position:relative;z-index:1}
+.jh-bp-c:hover{transform:translateY(-3px) scale(1.025);box-shadow:0 20px 44px rgba(58,123,191,.34)}
+.jh-bp-c:active{transform:scale(.97)}
+/* ghost */
+.jh-bg-c{
   padding:.74rem 1.5rem;font-size:.83rem;font-weight:600;
   color:var(--b);
   background:rgba(255,255,255,.75);
   border:1px solid rgba(58,123,191,.22);
   box-shadow:var(--s1);backdrop-filter:blur(8px);
 }
-.btn-g:hover{background:rgba(255,255,255,.96);border-color:rgba(58,123,191,.42);transform:translateY(-2px);box-shadow:var(--s2);}
+.jh-bg-c:hover{background:rgba(255,255,255,.96);border-color:rgba(58,123,191,.42);transform:translateY(-2px);box-shadow:var(--s2)}
 
 /* ─── URGENCY ─── */
-.urgency{
+.jh-urg{
   font-size:.72rem;font-weight:500;
   color:rgba(58,123,191,.68);letter-spacing:.02em;
   margin-bottom:clamp(1.6rem,4vh,2.6rem);
-  opacity:0;animation:fu .65s ease .5s forwards;
+  opacity:0;animation:jh-fu .65s ease .5s forwards;
 }
 
 /* ─── PROOF STRIP ─── */
-.proof{
+.jh-prf{
   display:flex;align-items:stretch;justify-content:center;
   flex-wrap:wrap;gap:0;
   background:rgba(255,255,255,.72);
@@ -196,46 +208,45 @@ h1{
   backdrop-filter:blur(10px);
   padding:.15rem 0;
   width:100%;max-width:540px;
-  opacity:0;animation:fu .7s ease .56s forwards;
+  opacity:0;animation:jh-fu .7s ease .56s forwards;
 }
-.pi{
+.jh-pi{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:.9rem 1.5rem;flex:1;min-width:0;
 }
-.pn{
+.jh-pn{
   font-size:clamp(1.2rem,3vw,1.55rem);
   font-weight:900;letter-spacing:-.048em;line-height:1;
   background:linear-gradient(135deg,#0d1b2a 0%,#3a7bbf 52%,#c1d5ed 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   margin-bottom:.22rem;
-  /* counter default — visible before JS */
   display:block;
 }
-.pl{
+.jh-pl{
   font-size:.7rem;font-weight:500;color:var(--muted);
   white-space:nowrap;line-height:1.3;text-align:center;
 }
-.psep{
+.jh-ps{
   width:1px;align-self:stretch;
   background:linear-gradient(180deg,transparent,rgba(58,123,191,.2),transparent);
   flex-shrink:0;
 }
 
 /* ─── SEGMENTS BAR ─── */
-.segs{
+.jh-segs{
   display:flex;flex-direction:column;align-items:center;gap:.6rem;
   margin-top:clamp(1.5rem,3.5vh,2.2rem);
-  opacity:0;animation:fu .65s ease .66s forwards;
+  opacity:0;animation:jh-fu .65s ease .66s forwards;
 }
-.segs-label{
+.jh-sl{
   font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
   color:rgba(13,27,42,.35);
 }
-.segs-row{
+.jh-sr{
   display:flex;align-items:center;justify-content:center;
   gap:.45rem;flex-wrap:wrap;
 }
-.seg{
+.jh-sg{
   padding:.28rem .72rem;border-radius:999px;
   background:rgba(255,255,255,.68);
   border:1px solid rgba(58,123,191,.14);
@@ -243,58 +254,57 @@ h1{
   box-shadow:0 1px 4px rgba(13,27,42,.04);
   transition:background .18s ease,border-color .18s ease;
 }
-.seg:hover{background:rgba(255,255,255,.95);border-color:rgba(58,123,191,.3);}
+.jh-sg:hover{background:rgba(255,255,255,.95);border-color:rgba(58,123,191,.3)}
 
 /* ─── KEYFRAMES ─── */
-@keyframes fu{
-  from{opacity:0;transform:translateY(20px);filter:blur(4px);}
-  to{opacity:1;transform:none;filter:none;}
+@keyframes jh-fu{
+  from{opacity:0;transform:translateY(20px);filter:blur(4px)}
+  to{opacity:1;transform:none;filter:none}
 }
 
 /* ─── RESPONSIVE ─── */
-/* proof: flex on desktop, 3-col grid on tablet, 1-col on small mobile */
 @media(max-width:560px){
-  .proof{max-width:100%;}
+  .jh-prf{max-width:100%}
 }
 @media(max-width:500px){
-  .proof{
+  .jh-prf{
     display:grid;grid-template-columns:repeat(3,1fr);
     border-radius:16px;padding:.1rem 0;
     max-width:100%;
   }
-  .psep{display:none;}
-  .pi{
+  .jh-ps{display:none}
+  .jh-pi{
     padding:.7rem .5rem;
     border-right:1px solid rgba(193,213,237,.25);
   }
-  .pi:last-child{border-right:none;}
-  .pn{font-size:clamp(1rem,5vw,1.3rem);}
-  .pl{font-size:.64rem;white-space:normal;text-align:center;}
+  .jh-pi:last-child{border-right:none}
+  .jh-pn{font-size:clamp(1rem,5vw,1.3rem)}
+  .jh-pl{font-size:.64rem;white-space:normal;text-align:center}
 }
 @media(max-width:360px){
-  .proof{grid-template-columns:1fr;}
-  .pi{
+  .jh-prf{grid-template-columns:1fr}
+  .jh-pi{
     border-right:none!important;
     border-bottom:1px solid rgba(193,213,237,.2);
     padding:.6rem 1rem;
   }
-  .pi:last-child{border-bottom:none;}
-  .ctas{flex-direction:column;align-items:stretch;}
-  .btn{justify-content:center;width:100%;}
-  .segs-row{gap:.35rem;}
-  .seg{font-size:.65rem;padding:.24rem .6rem;}
+  .jh-pi:last-child{border-bottom:none}
+  .jh-ctas{flex-direction:column;align-items:stretch}
+  .jh-btn{justify-content:center;width:100%}
+  .jh-sr{gap:.35rem}
+  .jh-sg{font-size:.65rem;padding:.24rem .6rem}
 }
 @media(hover:none){
-  .btn-p:hover,.btn-g:hover,.seg:hover{transform:none!important;}
+  .jh-bp-c:hover,.jh-bg-c:hover,.jh-sg:hover{transform:none!important}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition-duration:.01ms!important;}
-  #grid::after{animation:none!important;}
-  .badge,.gt,h1,.sub,.ctas,.urgency,.proof,.segs{opacity:1!important;transform:none!important;filter:none!important;}
+  *{animation:none!important;transition-duration:.01ms!important}
+  .jh-g::after{animation:none!important}
+  .jh-bd,.jh-gt,.jh-hr h1,.jh-sub,.jh-ctas,.jh-urg,.jh-prf,.jh-segs{opacity:1!important;transform:none!important;filter:none!important}
 }
 
 /* ═══ POPUP OVERLAY ═══ */
-#popup-overlay{
+.jh-ov{
   position:fixed;inset:0;z-index:999;
   background:rgba(8,18,32,.72);
   backdrop-filter:blur(6px);
@@ -303,10 +313,10 @@ h1{
   opacity:0;pointer-events:none;
   transition:opacity .3s ease;
 }
-#popup-overlay.open{opacity:1;pointer-events:all;}
+.jh-ov.open{opacity:1;pointer-events:all}
 
 /* ── POPUP CARD ── */
-#popup{
+.jh-pop{
   position:relative;
   width:100%;max-width:480px;
   background:#fff;
@@ -317,38 +327,36 @@ h1{
   transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s ease;
   opacity:0;
 }
-#popup-overlay.open #popup{transform:none;opacity:1;}
+.jh-ov.open .jh-pop{transform:none;opacity:1}
 
 /* progress bar */
-#popup-bar-bg{
-  height:4px;background:rgba(193,213,237,.3);
-}
-#popup-bar{
+.jh-pbb{height:4px;background:rgba(193,213,237,.3)}
+.jh-pb{
   height:100%;width:33.3%;
   background:linear-gradient(90deg,#1a4f80,#3a7bbf,#c1d5ed);
   transition:width .5s cubic-bezier(.22,1,.36,1);
 }
 
 /* header */
-#popup-head{
+.jh-ph{
   padding:1.5rem 1.75rem .75rem;
   border-bottom:1px solid rgba(193,213,237,.2);
 }
-.popup-step-label{
+.jh-psl{
   font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:#3a7bbf;margin-bottom:.5rem;
   display:flex;align-items:center;gap:.4rem;
 }
-.popup-step-label::before{
+.jh-psl::before{
   content:'';width:5px;height:5px;border-radius:50%;
   background:#3a7bbf;
-  animation:pip 2.4s ease-in-out infinite alternate;
+  animation:jh-pip 2.4s ease-in-out infinite alternate;
 }
-#popup-title{font-size:1.18rem;font-weight:800;color:#0d1b2a;line-height:1.25;margin-bottom:.22rem;}
-#popup-sub{font-size:.82rem;color:#4b5563;line-height:1.5;}
+.jh-pt{font-size:1.18rem;font-weight:800;color:#0d1b2a;line-height:1.25;margin-bottom:.22rem}
+.jh-pst{font-size:.82rem;color:#4b5563;line-height:1.5}
 
 /* close btn */
-#popup-close{
+.jh-pcl{
   position:absolute;top:.9rem;right:.9rem;
   width:2rem;height:2rem;border-radius:50%;
   background:rgba(193,213,237,.15);border:none;cursor:pointer;
@@ -356,26 +364,26 @@ h1{
   color:#4b5563;font-size:1rem;
   transition:background .18s ease;
 }
-#popup-close:hover{background:rgba(193,213,237,.35);}
+.jh-pcl:hover{background:rgba(193,213,237,.35)}
 
 /* steps wrapper */
-#popup-steps{
+.jh-pss{
   padding:1.5rem 1.75rem;
   min-height:200px;
 }
-.pstep{display:none;flex-direction:column;gap:1rem;animation:stepIn .35s ease forwards;}
-.pstep.active{display:flex;}
-@keyframes stepIn{
-  from{opacity:0;transform:translateX(18px);}
-  to{opacity:1;transform:none;}
+.jh-stp{display:none;flex-direction:column;gap:1rem;animation:jh-si .35s ease forwards}
+.jh-stp.active{display:flex}
+@keyframes jh-si{
+  from{opacity:0;transform:translateX(18px)}
+  to{opacity:1;transform:none}
 }
 
 /* field */
-.pfield{display:flex;flex-direction:column;gap:.38rem;}
-.pfield label{
+.jh-fld{display:flex;flex-direction:column;gap:.38rem}
+.jh-fld label{
   font-size:.76rem;font-weight:700;color:#0d1b2a;letter-spacing:.01em;
 }
-.pfield input,.pfield select,.pfield textarea{
+.jh-fld input,.jh-fld select,.jh-fld textarea{
   width:100%;padding:.78rem 1rem;
   background:#f5f9ff;
   border:1.5px solid rgba(193,213,237,.45);
@@ -384,30 +392,29 @@ h1{
   outline:none;
   transition:border-color .18s,box-shadow .18s;
 }
-.pfield input:focus,.pfield select:focus,.pfield textarea:focus{
+.jh-fld input:focus,.jh-fld select:focus,.jh-fld textarea:focus{
   border-color:#3a7bbf;
   box-shadow:0 0 0 3px rgba(58,123,191,.1);
   background:#fff;
 }
-.pfield input::placeholder{color:#9ca3af;}
-.pfield select{cursor:pointer;appearance:none;
+.jh-fld input::placeholder{color:#9ca3af}
+.jh-fld select{
+  cursor:pointer;appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233a7bbf' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 1rem center;background-size:12px;
   padding-right:2.5rem;
 }
 
 /* outros field */
-#outros-wrap{margin-top:.4rem;}
-#outros-wrap textarea{
-  resize:none;height:64px;font-size:.88rem;
-}
+.jh-ow{margin-top:.4rem}
+.jh-ow textarea{resize:none;height:64px;font-size:.88rem}
 
 /* faturamento pills */
-.fat-grid{
+.jh-fg{
   display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;
   margin-top:.1rem;
 }
-.fat-pill{
+.jh-fp{
   padding:.62rem .8rem;border-radius:10px;
   border:1.5px solid rgba(193,213,237,.4);
   background:#f5f9ff;
@@ -416,36 +423,36 @@ h1{
   transition:all .18s ease;
   user-select:none;
 }
-.fat-pill:hover{border-color:rgba(58,123,191,.4);color:#0d1b2a;}
-.fat-pill.selected{
+.jh-fp:hover{border-color:rgba(58,123,191,.4);color:#0d1b2a}
+.jh-fp.selected{
   border-color:#3a7bbf;background:rgba(58,123,191,.08);
   color:#1a4f80;
 }
 
 /* footer */
-#popup-foot{
+.jh-pf{
   padding:.75rem 1.75rem 1.5rem;
   display:flex;align-items:center;justify-content:space-between;gap:.6rem;
 }
-.popup-dots{display:flex;gap:.4rem;}
-.popup-dot{
+.jh-pds{display:flex;gap:.4rem}
+.jh-pd{
   width:7px;height:7px;border-radius:50%;
   background:rgba(193,213,237,.5);
   transition:background .25s ease,transform .25s ease;
 }
-.popup-dot.active{background:#3a7bbf;transform:scale(1.2);}
-.popup-dot.done{background:#2d6aa0;}
+.jh-pd.active{background:#3a7bbf;transform:scale(1.2)}
+.jh-pd.done{background:#2d6aa0}
 
-#popup-btn-back{
+.jh-pbb-b{
   padding:.65rem 1.2rem;border-radius:999px;
   background:transparent;border:1.5px solid rgba(193,213,237,.5);
   color:#4b5563;font-size:.84rem;font-weight:600;cursor:pointer;
   transition:all .18s ease;
   display:none;
 }
-#popup-btn-back:hover{border-color:rgba(58,123,191,.4);color:#0d1b2a;}
+.jh-pbb-b:hover{border-color:rgba(58,123,191,.4);color:#0d1b2a}
 
-#popup-btn-next{
+.jh-pbn{
   position:relative;overflow:hidden;
   padding:.82rem 1.85rem;border-radius:999px;
   background:linear-gradient(130deg,#c1d5ed,#3a7bbf,#c1d5ed);
@@ -454,27 +461,27 @@ h1{
   cursor:pointer;
   box-shadow:0 10px 28px rgba(58,123,191,.28);
   transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;
-  animation:bpulse 5s ease-in-out infinite alternate;
+  animation:jh-bpl 5s ease-in-out infinite alternate;
 }
-#popup-btn-next:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 36px rgba(58,123,191,.34);}
-#popup-btn-next:active{transform:scale(.98);}
+.jh-pbn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 36px rgba(58,123,191,.34)}
+.jh-pbn:active{transform:scale(.98)}
 
 /* success screen */
-#popup-success{
+.jh-suc{
   display:none;flex-direction:column;align-items:center;
   padding:2.5rem 1.75rem 2rem;text-align:center;gap:1rem;
 }
-#popup-success.show{display:flex;animation:stepIn .4s ease forwards;}
-.success-icon{
+.jh-suc.show{display:flex;animation:jh-si .4s ease forwards}
+.jh-si-i{
   width:4rem;height:4rem;border-radius:50%;
   background:linear-gradient(135deg,#1a4f80,#3a7bbf);
   display:grid;place-items:center;
   box-shadow:0 12px 30px rgba(58,123,191,.3);
   font-size:1.5rem;color:#fff;
 }
-.success-title{font-size:1.25rem;font-weight:800;color:#0d1b2a;}
-.success-sub{font-size:.9rem;color:#4b5563;line-height:1.6;max-width:320px;}
-.success-wa{
+.jh-st{font-size:1.25rem;font-weight:800;color:#0d1b2a}
+.jh-ss{font-size:.9rem;color:#4b5563;line-height:1.6;max-width:320px}
+.jh-sw{
   margin-top:.5rem;
   padding:.82rem 1.85rem;border-radius:999px;
   background:linear-gradient(135deg,#25D366,#1ebe5d);
@@ -484,191 +491,151 @@ h1{
   box-shadow:0 10px 28px rgba(37,211,102,.28);
   transition:transform .2s ease;
 }
-.success-wa:hover{transform:translateY(-2px);}
+.jh-sw:hover{transform:translateY(-2px)}
 
 /* error state */
-.pfield input.err,.pfield select.err{
+.jh-fld input.err,.jh-fld select.err{
   border-color:#ef4444;
   box-shadow:0 0 0 3px rgba(239,68,68,.1);
 }
-.field-err{font-size:.72rem;color:#ef4444;margin-top:.1rem;}
+.jh-fe{font-size:.72rem;color:#ef4444;margin-top:.1rem}
 
-/* mobile */
+/* mobile popup */
 @media(max-width:500px){
-  #popup{border-radius:20px;}
-  #popup-head{padding:1.2rem 1.25rem .65rem;}
-  #popup-steps{padding:1.2rem 1.25rem;}
-  #popup-foot{padding:.65rem 1.25rem 1.25rem;}
-  .fat-grid{grid-template-columns:repeat(2,1fr);}
+  .jh-pop{border-radius:20px}
+  .jh-ph{padding:1.2rem 1.25rem .65rem}
+  .jh-pss{padding:1.2rem 1.25rem}
+  .jh-pf{padding:.65rem 1.25rem 1.25rem}
+  .jh-fg{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
 
-<div id="grid" aria-hidden="true"></div>
-<div id="grain" aria-hidden="true"></div>
+<!-- Decorative layers -->
+<div class="jh-g" aria-hidden="true"></div>
+<div class="jh-gr" aria-hidden="true"></div>
 
-<section id="hero">
-<div class="hero-wrap">
+<!-- HERO -->
+<main>
+<section class="jh-hr" aria-label="Seção principal">
+<div class="jh-hw">
 
   <!-- Badge -->
-  <div class="badge">
-    <span class="badge-pip"></span>
+  <div class="jh-bd" role="status">
+    <span class="jh-bp" aria-hidden="true"></span>
     Grupo Full10X
   </div>
 
   <!-- H1 -->
   <h1>
-    <span class="gt">Mais ROI. Menos custo por lead.</span>
-    <span class="gd">Volume nas Vendas do seu Comercial.</span>
+    <span class="jh-gt">Mais ROI. Menos custo por lead.</span>
+    <span class="jh-gd">Volume nas Vendas do seu Comercial.</span>
   </h1>
 
-  <!-- Subtitle — concise -->
-  <p class="sub">
-    Acelere o seu Negócio com Funis de Aquisição e processos estruturados — tudo operado por um CMO dentro do seu negócio. 
+  <!-- Subtitle -->
+  <p class="jh-sub">
+    Acelere o seu Negócio com Funis de Aquisição e processos estruturados — tudo operado por um CMO dentro do seu negócio.
   </p>
 
-  <!-- CTAs with clear hierarchy -->
-  <div class="ctas">
-    <a href="https://wa.me/5562999281417?text=Quero%20saber%20mais%20sobre%20a%20sua%20consultoria%21" target="_blank" rel="noopener noreferrer" class="btn btn-p">
+  <!-- CTAs -->
+  <div class="jh-ctas">
+    <button type="button" class="jh-btn jh-bp-c" data-action="apply" aria-label="Quero saber mais — abre formulário de aplicação">
       <span>Quero saber mais</span>
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M13 7l5 5-5 5M6 12h12" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-    </a>
-    <a href="#servicos" class="btn btn-g">Funis de Aquisição</a>
+    </button>
+    <a href="#servicos" class="jh-btn jh-bg-c">Funis de Aquisição</a>
   </div>
 
   <!-- Urgency -->
-  <p class="urgency">Poucas Vagas &nbsp;·&nbsp; Oportunidade Exclusiva</p>
+  <p class="jh-urg" aria-live="polite">Poucas Vagas &nbsp;·&nbsp; Oportunidade Exclusiva</p>
 
-  <!-- Proof strip — card style -->
-  <div class="proof">
-    <div class="pi">
-      <span class="pn" data-count="10" data-prefix="+R$" data-suffix=" Milhões">+R$10 Milhões</span>
-      <span class="pl">Em tráfego gerenciado</span>
+  <!-- Proof strip -->
+  <div class="jh-prf" role="list" aria-label="Resultados comprovados">
+    <div class="jh-pi" role="listitem">
+      <span class="jh-pn" data-count="10" data-prefix="+R$" data-suffix=" Milhões">+R$10 Milhões</span>
+      <span class="jh-pl">Em tráfego gerenciado</span>
     </div>
-    <div class="psep" aria-hidden="true"></div>
-    <div class="pi">
-      <span class="pn" data-count="7" data-prefix="+" data-suffix=" dígitos">+7 dígitos</span>
-      <span class="pl">Faturados em negócios</span>
+    <div class="jh-ps" aria-hidden="true"></div>
+    <div class="jh-pi" role="listitem">
+      <span class="jh-pn" data-count="7" data-prefix="+" data-suffix=" dígitos">+7 dígitos</span>
+      <span class="jh-pl">Faturados em negócios</span>
     </div>
-    <div class="psep" aria-hidden="true"></div>
-    <div class="pi">
-      <span class="pn" data-count="6" data-suffix=" anos">6 anos</span>
-      <span class="pl">No mercado digital</span>
+    <div class="jh-ps" aria-hidden="true"></div>
+    <div class="jh-pi" role="listitem">
+      <span class="jh-pn" data-count="6" data-suffix=" anos">6 anos</span>
+      <span class="jh-pl">No mercado digital</span>
     </div>
   </div>
 
   <!-- Segments -->
-  <div class="segs">
-    <span class="segs-label">Mercados atendidos</span>
-    <div class="segs-row">
-      <span class="seg">Mercado Financeiro</span>
-      <span class="seg">Fintech</span>
-      <span class="seg">SaaS</span>
-      <span class="seg">Agências</span>
-      <span class="seg">E-commerce</span>
-      <span class="seg">Infoprodutos</span>
+  <div class="jh-segs">
+    <span class="jh-sl">Mercados atendidos</span>
+    <div class="jh-sr" role="list">
+      <span class="jh-sg" role="listitem">Mercado Financeiro</span>
+      <span class="jh-sg" role="listitem">Fintech</span>
+      <span class="jh-sg" role="listitem">SaaS</span>
+      <span class="jh-sg" role="listitem">Agências</span>
+      <span class="jh-sg" role="listitem">E-commerce</span>
+      <span class="jh-sg" role="listitem">Infoprodutos</span>
     </div>
   </div>
 
 </div>
 </section>
-
-<script>
-(function(){
-  /* btn glow follow mouse */
-  var btns = document.querySelectorAll('.btn-p');
-  btns.forEach(function(btn){
-    var raf=null,prev=-999;
-    btn.addEventListener('mousemove',function(e){
-      if(raf)return;
-      raf=requestAnimationFrame(function(){
-        var r=btn.getBoundingClientRect();
-        var p=((e.clientX-r.left)/r.width)*100-8;
-        p=Math.max(0,Math.min(84,p));
-        if(Math.abs(p-prev)>=1.5){prev=p;btn.style.setProperty('--bx',p+'%');}
-        raf=null;
-      });
-    },{passive:true});
-  });
-
-  /* animated counters */
-  if(!('IntersectionObserver' in window)) return;
-  var io=new IntersectionObserver(function(entries,obs){
-    entries.forEach(function(e){
-      if(!e.isIntersecting)return;
-      var el=e.target;
-      var target=parseFloat(el.getAttribute('data-count'));
-      var prefix=el.getAttribute('data-prefix')||'';
-      var suffix=el.getAttribute('data-suffix')||'';
-      var dur=1800,t0=null,isInt=Number.isInteger(target);
-      function ease(t){return 1-Math.pow(1-t,3);}
-      requestAnimationFrame(function step(ts){
-        if(!t0)t0=ts;
-        var p=Math.min((ts-t0)/dur,1);
-        var v=ease(p)*target;
-        el.textContent=prefix+(isInt?Math.floor(v):v.toFixed(1))+suffix;
-        if(p<1)requestAnimationFrame(step);
-        else el.textContent=prefix+target+suffix;
-      });
-      obs.unobserve(el);
-    });
-  },{threshold:.5,rootMargin:'0px 0px -10% 0px'});
-  document.querySelectorAll('.pn[data-count]').forEach(function(el){io.observe(el);});
-})();
-</script>
+</main>
 
 <!-- ═══ POPUP APLICAÇÃO ═══ -->
-<div id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-  <div id="popup">
+<div class="jh-ov" role="dialog" aria-modal="true" aria-labelledby="jh-pt-id">
+  <div class="jh-pop">
 
     <!-- progress bar -->
-    <div id="popup-bar-bg"><div id="popup-bar"></div></div>
+    <div class="jh-pbb"><div class="jh-pb" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div></div>
 
     <!-- close -->
-    <button id="popup-close" aria-label="Fechar">✕</button>
+    <button class="jh-pcl" aria-label="Fechar formulário">&#10005;</button>
 
     <!-- header -->
-    <div id="popup-head">
-      <div class="popup-step-label" id="popup-step-label">Etapa 1 de 3</div>
-      <div id="popup-title">Quem é você?</div>
-      <div id="popup-sub">Vamos começar com o básico para eu entender seu perfil.</div>
+    <div class="jh-ph" id="jh-ph-id">
+      <div class="jh-psl" id="jh-lbl-id">Etapa 1 de 3</div>
+      <div class="jh-pt" id="jh-pt-id">Quem é você?</div>
+      <div class="jh-pst" id="jh-pst-id">Vamos começar com o básico para eu entender seu perfil.</div>
     </div>
 
     <!-- steps -->
-    <div id="popup-steps">
+    <div class="jh-pss" id="jh-pss-id">
 
-      <!-- ETAPA 1: Nome + WhatsApp -->
-      <div class="pstep active" id="step-1">
-        <div class="pfield">
-          <label for="f-nome">Seu nome completo</label>
-          <input type="text" id="f-nome" placeholder="Ex: João Silva" autocomplete="name"/>
+      <!-- ETAPA 1 -->
+      <div class="jh-stp active" id="jh-s1">
+        <div class="jh-fld">
+          <label for="jh-fn">Seu nome completo</label>
+          <input type="text" id="jh-fn" placeholder="Ex: João Silva" autocomplete="name" maxlength="80"/>
         </div>
-        <div class="pfield">
-          <label for="f-tel">WhatsApp com DDD</label>
-          <input type="tel" id="f-tel" placeholder="(62) 99999-9999" autocomplete="tel"/>
+        <div class="jh-fld">
+          <label for="jh-ft">WhatsApp com DDD</label>
+          <input type="tel" id="jh-ft" placeholder="(62) 99999-9999" autocomplete="tel" maxlength="16" inputmode="numeric"/>
         </div>
       </div>
 
-      <!-- ETAPA 2: Email + Instagram -->
-      <div class="pstep" id="step-2">
-        <div class="pfield">
-          <label for="f-email">Seu melhor e-mail</label>
-          <input type="email" id="f-email" placeholder="voce@empresa.com" autocomplete="email"/>
+      <!-- ETAPA 2 -->
+      <div class="jh-stp" id="jh-s2">
+        <div class="jh-fld">
+          <label for="jh-fe">Seu melhor e-mail</label>
+          <input type="email" id="jh-fe" placeholder="voce@empresa.com" autocomplete="email" maxlength="120"/>
         </div>
-        <div class="pfield">
-          <label for="f-ig">Instagram <span style="color:#9ca3af;font-weight:400">(@)</span></label>
-          <input type="text" id="f-ig" placeholder="@seuperfil"/>
+        <div class="jh-fld">
+          <label for="jh-fi">Instagram <span style="color:#9ca3af;font-weight:400">(@)</span></label>
+          <input type="text" id="jh-fi" placeholder="@seuperfil" maxlength="40"/>
         </div>
       </div>
 
-      <!-- ETAPA 3: Modelo + Faturamento -->
-      <div class="pstep" id="step-3">
-        <div class="pfield">
-          <label for="f-modelo">Modelo de negócio</label>
-          <select id="f-modelo">
+      <!-- ETAPA 3 -->
+      <div class="jh-stp" id="jh-s3">
+        <div class="jh-fld">
+          <label for="jh-fm">Modelo de negócio</label>
+          <select id="jh-fm">
             <option value="" disabled selected>Selecione seu modelo</option>
             <option value="infoproduto">Infoproduto / Curso online</option>
             <option value="ecommerce">E-commerce / Loja virtual</option>
@@ -679,46 +646,46 @@ h1{
             <option value="local">Negócio local / Físico</option>
             <option value="outros">Outros</option>
           </select>
-          <div id="outros-wrap" style="display:none;">
-            <textarea id="f-outros" placeholder="Descreva seu modelo de negócio..."></textarea>
+          <div class="jh-ow" id="jh-ow" style="display:none">
+            <textarea id="jh-fo" placeholder="Descreva seu modelo de negócio..." maxlength="300"></textarea>
           </div>
         </div>
-        <div class="pfield">
-          <label>Faturamento mensal atual</label>
-          <div class="fat-grid" id="fat-grid">
-            <div class="fat-pill" data-val="até 10k">Até R$ 10k</div>
-            <div class="fat-pill" data-val="10k-50k">R$ 10k – 50k</div>
-            <div class="fat-pill" data-val="50k-150k">R$ 50k – 150k</div>
-            <div class="fat-pill" data-val="150k-500k">R$ 150k – 500k</div>
-            <div class="fat-pill" data-val="500k-1M">R$ 500k – 1M</div>
-            <div class="fat-pill" data-val="acima 1M">Acima de R$ 1M</div>
+        <div class="jh-fld">
+          <label id="jh-fat-lbl">Faturamento mensal atual</label>
+          <div class="jh-fg" id="jh-fgd" role="radiogroup" aria-labelledby="jh-fat-lbl">
+            <div class="jh-fp" role="radio" aria-checked="false" tabindex="0" data-val="até 10k">Até R$ 10k</div>
+            <div class="jh-fp" role="radio" aria-checked="false" tabindex="0" data-val="10k-50k">R$ 10k – 50k</div>
+            <div class="jh-fp" role="radio" aria-checked="false" tabindex="0" data-val="50k-150k">R$ 50k – 150k</div>
+            <div class="jh-fp" role="radio" aria-checked="false" tabindex="0" data-val="150k-500k">R$ 150k – 500k</div>
+            <div class="jh-fp" role="radio" aria-checked="false" tabindex="0" data-val="500k-1M">R$ 500k – 1M</div>
+            <div class="jh-fp" role="radio" aria-checked="false" tabindex="0" data-val="acima 1M">Acima de R$ 1M</div>
           </div>
         </div>
       </div>
 
-    </div><!-- /steps -->
+    </div>
 
     <!-- success -->
-    <div id="popup-success">
-      <div class="success-icon">✓</div>
-      <div class="success-title">Aplicação enviada!</div>
-      <div class="success-sub">Recebi suas informações. Entrarei em contato pelo WhatsApp em até 30M úteis para agendar uma conversa.</div>
-      <a id="success-wa-btn" href="" target="_blank" rel="noopener noreferrer" class="success-wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="jh-suc" id="jh-suc">
+      <div class="jh-si-i" aria-hidden="true">&#10003;</div>
+      <div class="jh-st">Aplicação enviada!</div>
+      <div class="jh-ss">Recebi suas informações. Entrarei em contato pelo WhatsApp em até 30 minutos úteis para agendar uma conversa.</div>
+      <a id="jh-wa-btn" href="" target="_blank" rel="noopener noreferrer" class="jh-sw">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar no WhatsApp agora
       </a>
     </div>
 
     <!-- footer -->
-    <div id="popup-foot">
-      <div class="popup-dots">
-        <div class="popup-dot active" id="dot-1"></div>
-        <div class="popup-dot" id="dot-2"></div>
-        <div class="popup-dot" id="dot-3"></div>
+    <div class="jh-pf" id="jh-pf">
+      <div class="jh-pds">
+        <div class="jh-pd active" id="jh-d1"></div>
+        <div class="jh-pd" id="jh-d2"></div>
+        <div class="jh-pd" id="jh-d3"></div>
       </div>
-      <div style="display:flex;gap:.5rem;">
-        <button id="popup-btn-back">← Voltar</button>
-        <button id="popup-btn-next">Continuar →</button>
+      <div style="display:flex;gap:.5rem">
+        <button class="jh-pbb-b" id="jh-bk" type="button">&#8592; Voltar</button>
+        <button class="jh-pbn" id="jh-nx" type="button">Continuar &#8594;</button>
       </div>
     </div>
 
@@ -726,225 +693,241 @@ h1{
 </div>
 
 <script>
-(function(){
-  var WA_NUMBER = '5562999281417';
-  var WA_MSG    = encodeURIComponent('Quero saber mais sobre a sua consultoria!');
-
-  var overlay  = document.getElementById('popup-overlay');
-  var bar      = document.getElementById('popup-bar');
-  var lbl      = document.getElementById('popup-step-label');
-  var title    = document.getElementById('popup-title');
-  var sub      = document.getElementById('popup-sub');
-  var steps    = document.querySelectorAll('.pstep');
-  var dots     = document.querySelectorAll('.popup-dot');
-  var btnBack  = document.getElementById('popup-btn-back');
-  var btnNext  = document.getElementById('popup-btn-next');
-  var foot     = document.getElementById('popup-foot');
-  var success  = document.getElementById('popup-success');
-  var psteps   = document.getElementById('popup-steps');
-  var phead    = document.getElementById('popup-head');
-
-  var current = 1;
-  var TOTAL   = 3;
-  var fatVal  = '';
-
-  var META = {
-    1:{ label:'Etapa 1 de 3', title:'Quem é você?',           sub:'Vamos começar com o básico para eu entender seu perfil.' },
-    2:{ label:'Etapa 2 de 3', title:'Como te encontro?',      sub:'Seu e-mail e Instagram para entrarmos em contato.' },
-    3:{ label:'Etapa 3 de 3', title:'Sobre o seu negócio',    sub:'Me ajuda a entender onde você está para eu entender onde pode chegar.' },
-  };
-
-  /* ── OPEN ── */
-  function openPopup(){
-    overlay.classList.add('open');
-    document.body.style.overflow='hidden';
-    setTimeout(function(){ document.getElementById('f-nome').focus(); },350);
-  }
-
-  /* ── CLOSE ── */
-  function closePopup(){
-    overlay.classList.remove('open');
-    document.body.style.overflow='';
-  }
-
-  /* intercept all .btn-p clicks */
-  document.querySelectorAll('.btn-p').forEach(function(btn){
-    btn.addEventListener('click',function(e){
-      e.preventDefault();
-      openPopup();
+!function(){
+/* ─── HERO INTERACTIONS ─── */
+var _b=document.querySelectorAll('.jh-bp-c');
+_b.forEach(function(b){
+  var r=null,p=-999;
+  b.addEventListener('mousemove',function(e){
+    if(r)return;
+    r=requestAnimationFrame(function(){
+      var c=b.getBoundingClientRect(),
+          v=((e.clientX-c.left)/c.width)*100-8;
+      v=Math.max(0,Math.min(84,v));
+      if(Math.abs(v-p)>=1.5){p=v;b.style.setProperty('--bx',v+'%')}
+      r=null;
     });
-  });
-  document.getElementById('popup-close').addEventListener('click', closePopup);
-  overlay.addEventListener('click',function(e){ if(e.target===overlay) closePopup(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closePopup(); });
+  },{passive:true});
+});
 
-  /* ── UPDATE UI ── */
-  function updateStep(){
-    var pct = (current/TOTAL)*100;
-    bar.style.width = pct+'%';
-    lbl.textContent = META[current].label;
-    title.textContent = META[current].title;
-    sub.textContent = META[current].sub;
-
-    steps.forEach(function(s,i){
-      s.classList.toggle('active', i===current-1);
-    });
-    dots.forEach(function(d,i){
-      d.classList.remove('active','done');
-      if(i===current-1) d.classList.add('active');
-      if(i<current-1)   d.classList.add('done');
-    });
-
-    btnBack.style.display = current>1 ? 'inline-flex':'none';
-    btnNext.textContent   = current<TOTAL ? 'Continuar →' : 'Enviar aplicação ✓';
-  }
-
-  /* ── VALIDATE ── */
-  function clearErr(id){ var el=document.getElementById(id); if(el){ el.classList.remove('err'); var e=el.parentNode.querySelector('.field-err'); if(e) e.remove(); } }
-  function setErr(id,msg){ var el=document.getElementById(id); if(!el)return false; el.classList.add('err'); var e=document.createElement('span'); e.className='field-err'; e.textContent=msg; el.parentNode.appendChild(e); return false; }
-
-  function validate(){
-    var ok=true;
-    if(current===1){
-      clearErr('f-nome'); clearErr('f-tel');
-      var n=document.getElementById('f-nome').value.trim();
-      var t=document.getElementById('f-tel').value.trim();
-      if(!n){ ok=setErr('f-nome','Digite seu nome'); }
-      if(!t||t.replace(/\D/g,'').length<10){ ok=setErr('f-tel','Digite um WhatsApp válido'); }
-    }
-    if(current===2){
-      clearErr('f-email'); clearErr('f-ig');
-      var em=document.getElementById('f-email').value.trim();
-      var ig=document.getElementById('f-ig').value.trim();
-      if(!em||!/^[^@]+@[^@]+\.[^@]+$/.test(em)){ ok=setErr('f-email','Digite um e-mail válido'); }
-      if(!ig){ ok=setErr('f-ig','Digite seu @Instagram'); }
-    }
-    if(current===3){
-      var m=document.getElementById('f-modelo').value;
-      if(!m){ ok=setErr('f-modelo','Selecione seu modelo de negócio'); }
-      if(!fatVal){ var grd=document.getElementById('fat-grid'); grd.style.outline='2px solid #ef4444'; grd.style.borderRadius='10px'; setTimeout(function(){ grd.style.outline=''; },1500); ok=false; }
-    }
-    return ok;
-  }
-
-  /* ── NAV ── */
-  btnNext.addEventListener('click',function(){
-    if(!validate()) return;
-    if(current<TOTAL){
-      current++;
-      updateStep();
-      // focus first field of new step
-      var activeStep = document.getElementById('step-'+current);
-      var firstInput = activeStep && activeStep.querySelector('input,select');
-      if(firstInput) setTimeout(function(){ firstInput.focus(); },350);
-    } else {
-      submitForm();
-    }
-  });
-
-  btnBack.addEventListener('click',function(){
-    if(current>1){ current--; updateStep(); }
-  });
-
-  /* ── MODELO: show outros ── */
-  document.getElementById('f-modelo').addEventListener('change',function(){
-    var wrap=document.getElementById('outros-wrap');
-    wrap.style.display = this.value==='outros' ? 'block' : 'none';
-    if(this.value==='outros') document.getElementById('f-outros').focus();
-  });
-
-  /* ── FATURAMENTO PILLS ── */
-  document.getElementById('fat-grid').addEventListener('click',function(e){
-    var pill=e.target.closest('.fat-pill');
-    if(!pill) return;
-    document.querySelectorAll('.fat-pill').forEach(function(p){ p.classList.remove('selected'); });
-    pill.classList.add('selected');
-    fatVal = pill.getAttribute('data-val');
-    document.getElementById('fat-grid').style.outline='';
-  });
-
-  /* ── PHONE MASK ── */
-  document.getElementById('f-tel').addEventListener('input',function(){
-    var v=this.value.replace(/\D/g,'').slice(0,11);
-    if(v.length<=2) this.value=v.length?'('+v:'';
-    else if(v.length<=6) this.value='('+v.slice(0,2)+') '+v.slice(2);
-    else if(v.length<=10) this.value='('+v.slice(0,2)+') '+v.slice(2,6)+'-'+v.slice(6);
-    else this.value='('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
-  });
-
-  /* ── INSTAGRAM NORMALIZE ── */
-  document.getElementById('f-ig').addEventListener('blur',function(){
-    var v=this.value.trim();
-    if(v && v[0]!=='@') this.value='@'+v;
-  });
-
-  /* ── SUBMIT ── */
-  /* 👇 COLE AQUI A URL DO SEU APPS SCRIPT APÓS IMPLANTAR */
-  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyvISR0W2jPbFHU1gqMFTDKLjfzr6gOAZO3qjyOjst2YVXjxbSucQpsnAz85Y-_uFGWYg/exec';
-
-  function showSuccess(nome, tel, modeloFinal){
-    var msg = encodeURIComponent(
-      'Olá Julio! Preenchi o formulário de aplicação:\n\n'+
-      '👤 Nome: '+nome+'\n'+
-      '📱 WhatsApp: '+tel+'\n'+
-      '📧 E-mail: '+document.getElementById('f-email').value.trim()+'\n'+
-      '📸 Instagram: '+document.getElementById('f-ig').value.trim()+'\n'+
-      '💼 Negócio: '+modeloFinal+'\n'+
-      '💰 Faturamento: '+fatVal+'\n\n'+
-      'Quero saber mais sobre a sua consultoria!'
-    );
-    psteps.style.display='none';
-    phead.style.display='none';
-    foot.style.display='none';
-    bar.style.width='100%';
-    success.classList.add('show');
-    document.getElementById('success-wa-btn').href = 'https://wa.me/'+WA_NUMBER+'?text='+msg;
-  }
-
-  function submitForm(){
-    var nome   = document.getElementById('f-nome').value.trim();
-    var tel    = document.getElementById('f-tel').value.trim();
-    var email  = document.getElementById('f-email').value.trim();
-    var ig     = document.getElementById('f-ig').value.trim();
-    var modelo = document.getElementById('f-modelo').value;
-    var outros = document.getElementById('f-outros').value.trim();
-    var modeloFinal = modelo==='outros'
-      ? ('Outros: '+outros)
-      : document.getElementById('f-modelo').options[document.getElementById('f-modelo').selectedIndex].text;
-
-    /* ── Disable button while sending ── */
-    btnNext.disabled = true;
-    btnNext.textContent = 'Enviando...';
-
-    /* ── Send to Google Sheets ── */
-    if(SHEETS_URL && SHEETS_URL !== 'COLE_SUA_URL_AQUI'){
-      fetch(SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome:        nome,
-          whatsapp:    tel,
-          email:       email,
-          instagram:   ig,
-          modelo:      modeloFinal,
-          faturamento: fatVal
-        })
-      })
-      .catch(function(err){ console.warn('Sheets erro:', err); })
-      .finally(function(){
-        btnNext.disabled = false;
-        showSuccess(nome, tel, modeloFinal);
+/* ─── ANIMATED COUNTERS ─── */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(en,ob){
+    en.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target,
+          tg=parseFloat(el.getAttribute('data-count')),
+          pr=el.getAttribute('data-prefix')||'',
+          sf=el.getAttribute('data-suffix')||'',
+          du=1800,t0=null,isI=Number.isInteger(tg);
+      function ea(t){return 1-Math.pow(1-t,3)}
+      requestAnimationFrame(function st(ts){
+        if(!t0)t0=ts;
+        var p=Math.min((ts-t0)/du,1),
+            v=ea(p)*tg;
+        el.textContent=pr+(isI?Math.floor(v):v.toFixed(1))+sf;
+        if(p<1)requestAnimationFrame(st);
+        else el.textContent=pr+tg+sf;
       });
-    } else {
-      /* fallback: sem URL configurada, só mostra sucesso */
-      btnNext.disabled = false;
-      showSuccess(nome, tel, modeloFinal);
-    }
-  }
+      ob.unobserve(el);
+    });
+  },{threshold:.5,rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.jh-pn[data-count]').forEach(function(el){io.observe(el)});
+}
 
-  updateStep();
-})();
+/* ─── POPUP FORM LOGIC ─── */
+var _w=String.fromCharCode(53,53,54,50,57,57,57,50,56,49,52,49,55),
+    ov=document.querySelector('.jh-ov'),
+    br=document.querySelector('.jh-pb'),
+    lb=document.getElementById('jh-lbl-id'),
+    tt=document.getElementById('jh-pt-id'),
+    sb=document.getElementById('jh-pst-id'),
+    ss=document.querySelectorAll('.jh-stp'),
+    ds=document.querySelectorAll('.jh-pd'),
+    bk=document.getElementById('jh-bk'),
+    nx=document.getElementById('jh-nx'),
+    ft=document.getElementById('jh-pf'),
+    sc=document.getElementById('jh-suc'),
+    ps=document.getElementById('jh-pss-id'),
+    ph=document.getElementById('jh-ph-id'),
+    cu=1,TL=3,fv='',
+    MT={
+      1:{l:'Etapa 1 de 3',t:'Quem é você?',s:'Vamos começar com o básico para eu entender seu perfil.'},
+      2:{l:'Etapa 2 de 3',t:'Como te encontro?',s:'Seu e-mail e Instagram para entrarmos em contato.'},
+      3:{l:'Etapa 3 de 3',t:'Sobre o seu negócio',s:'Me ajuda a entender onde você está para eu entender onde pode chegar.'}
+    };
+
+function oP(){ov.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('jh-fn').focus()},350)}
+function cP(){ov.classList.remove('open');document.body.style.overflow=''}
+
+document.querySelectorAll('[data-action="apply"]').forEach(function(b){
+  b.addEventListener('click',function(e){e.preventDefault();oP()});
+});
+document.querySelector('.jh-pcl').addEventListener('click',cP);
+ov.addEventListener('click',function(e){if(e.target===ov)cP()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cP()});
+
+function uS(){
+  var p=(cu/TL)*100;
+  br.style.width=p+'%';
+  br.setAttribute('aria-valuenow',Math.round(p));
+  lb.textContent=MT[cu].l;
+  tt.textContent=MT[cu].t;
+  sb.textContent=MT[cu].s;
+  ss.forEach(function(s,i){s.classList.toggle('active',i===cu-1)});
+  ds.forEach(function(d,i){
+    d.classList.remove('active','done');
+    if(i===cu-1)d.classList.add('active');
+    if(i<cu-1)d.classList.add('done');
+  });
+  bk.style.display=cu>1?'inline-flex':'none';
+  nx.textContent=cu<TL?'Continuar \u2192':'Enviar aplicação \u2713';
+}
+
+function cE(id){var el=document.getElementById(id);if(el){el.classList.remove('err');var e=el.parentNode.querySelector('.jh-fe');if(e)e.remove()}}
+function sE(id,m){var el=document.getElementById(id);if(!el)return false;el.classList.add('err');var e=document.createElement('span');e.className='jh-fe';e.textContent=m;el.parentNode.appendChild(e);return false}
+
+function vl(){
+  var ok=true;
+  if(cu===1){
+    cE('jh-fn');cE('jh-ft');
+    var n=document.getElementById('jh-fn').value.trim(),
+        t=document.getElementById('jh-ft').value.trim();
+    if(!n)ok=sE('jh-fn','Digite seu nome');
+    if(!t||t.replace(/\D/g,'').length<10)ok=sE('jh-ft','Digite um WhatsApp válido');
+  }
+  if(cu===2){
+    cE('jh-fe');cE('jh-fi');
+    var em=document.getElementById('jh-fe').value.trim(),
+        ig=document.getElementById('jh-fi').value.trim();
+    if(!em||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))ok=sE('jh-fe','Digite um e-mail válido');
+    if(!ig)ok=sE('jh-fi','Digite seu @Instagram');
+  }
+  if(cu===3){
+    var m=document.getElementById('jh-fm').value;
+    if(!m)ok=sE('jh-fm','Selecione seu modelo de negócio');
+    if(!fv){var g=document.getElementById('jh-fgd');g.style.outline='2px solid #ef4444';g.style.borderRadius='10px';setTimeout(function(){g.style.outline=''},1500);ok=false}
+  }
+  return ok;
+}
+
+nx.addEventListener('click',function(){
+  if(!vl())return;
+  if(cu<TL){
+    cu++;uS();
+    var as=document.getElementById('jh-s'+cu),fi=as&&as.querySelector('input,select');
+    if(fi)setTimeout(function(){fi.focus()},350);
+  }else{sF()}
+});
+bk.addEventListener('click',function(){if(cu>1){cu--;uS()}});
+
+document.getElementById('jh-fm').addEventListener('change',function(){
+  var w=document.getElementById('jh-ow');
+  w.style.display=this.value==='outros'?'block':'none';
+  if(this.value==='outros')document.getElementById('jh-fo').focus();
+});
+
+document.getElementById('jh-fgd').addEventListener('click',function(e){
+  var p=e.target.closest('.jh-fp');
+  if(!p)return;
+  document.querySelectorAll('.jh-fp').forEach(function(x){x.classList.remove('selected');x.setAttribute('aria-checked','false')});
+  p.classList.add('selected');
+  p.setAttribute('aria-checked','true');
+  fv=p.getAttribute('data-val');
+  document.getElementById('jh-fgd').style.outline='';
+});
+
+/* keyboard support for pills */
+document.getElementById('jh-fgd').addEventListener('keydown',function(e){
+  if(e.key===' '||e.key==='Enter'){
+    e.preventDefault();
+    var p=e.target.closest('.jh-fp');
+    if(p)p.click();
+  }
+});
+
+/* phone mask */
+document.getElementById('jh-ft').addEventListener('input',function(){
+  var v=this.value.replace(/\D/g,'').slice(0,11);
+  if(v.length<=2)this.value=v.length?'('+v:'';
+  else if(v.length<=6)this.value='('+v.slice(0,2)+') '+v.slice(2);
+  else if(v.length<=10)this.value='('+v.slice(0,2)+') '+v.slice(2,6)+'-'+v.slice(6);
+  else this.value='('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+});
+
+/* instagram normalize */
+document.getElementById('jh-fi').addEventListener('blur',function(){
+  var v=this.value.trim();
+  if(v&&v[0]!=='@')this.value='@'+v;
+});
+
+/* ─── SUBMIT ─── */
+var _u=[104,116,116,112,115,58,47,47,115,99,114,105,112,116,46,103,111,111,103,108,101,46,99,111,109,47,109,97,99,114,111,115,47,115,47,65,75,102,121,99,98,121,118,73,83,82,48,87,50,106,80,98,70,72,85,49,103,113,77,70,84,68,75,76,106,102,122,114,54,103,79,65,90,79,51,113,106,121,79,106,115,116,50,89,86,88,106,120,98,83,117,99,81,112,115,110,65,122,56,53,89,45,95,117,70,71,87,89,103,47,101,120,101,99].map(function(c){return String.fromCharCode(c)}).join('');
+
+function shS(n,t,mf){
+  var mg=encodeURIComponent(
+    'Olá Julio! Preenchi o formulário de aplicação:\n\n'+
+    '\u{1F464} Nome: '+n+'\n'+
+    '\u{1F4F1} WhatsApp: '+t+'\n'+
+    '\u{1F4E7} E-mail: '+document.getElementById('jh-fe').value.trim()+'\n'+
+    '\u{1F4F8} Instagram: '+document.getElementById('jh-fi').value.trim()+'\n'+
+    '\u{1F4BC} Negócio: '+mf+'\n'+
+    '\u{1F4B0} Faturamento: '+fv+'\n\n'+
+    'Quero saber mais sobre a sua consultoria!'
+  );
+  ps.style.display='none';
+  ph.style.display='none';
+  ft.style.display='none';
+  br.style.width='100%';
+  sc.classList.add('show');
+  document.getElementById('jh-wa-btn').href='https://wa.me/'+_w+'?text='+mg;
+}
+
+function sF(){
+  var n=document.getElementById('jh-fn').value.trim(),
+      t=document.getElementById('jh-ft').value.trim(),
+      em=document.getElementById('jh-fe').value.trim(),
+      ig=document.getElementById('jh-fi').value.trim(),
+      md=document.getElementById('jh-fm').value,
+      ot=document.getElementById('jh-fo').value.trim(),
+      mf=md==='outros'?('Outros: '+ot):document.getElementById('jh-fm').options[document.getElementById('jh-fm').selectedIndex].text;
+
+  /* honeypot timestamp check */
+  var ts=Date.now(),st=window._jh_ts||ts;
+  if(ts-st<2000){return}/* too fast = bot */
+
+  nx.disabled=true;
+  nx.textContent='Enviando...';
+
+  if(_u){
+    fetch(_u,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        nome:n,whatsapp:t,email:em,instagram:ig,
+        modelo:mf,faturamento:fv,
+        _t:new Date().toISOString()
+      })
+    })
+    .catch(function(err){if(typeof console!=='undefined')console.warn('Err:',err)})
+    .finally(function(){
+      nx.disabled=false;
+      shS(n,t,mf);
+    });
+  }else{
+    nx.disabled=false;
+    shS(n,t,mf);
+  }
+}
+
+/* track form open time for bot detection */
+document.querySelectorAll('[data-action="apply"]').forEach(function(b){
+  b.addEventListener('click',function(){window._jh_ts=Date.now()});
+});
+
+uS();
+}();
 </script>
 
 </body>
