@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Julio Henrique — CMO & Founder Full10X</title>
+<meta name="description" content="Tenha uma Consultoria e Análise Avançado no Marketing do seu Negócio. +R$10M gerenciados. Eu identifico o gargalo e resolvo."/>
+<meta property="og:title" content="Julio Henrique — Consultoria CMO Full10X"/>
+<meta property="og:description" content="Seu negócio já vende mas não escala. O problema não é investimento — é gargalo."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#e8f3fb"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ─── RESET & BASE ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#e8f3fb;color:#0d1b2a;
+  overflow-x:hidden;min-height:100svh;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ─── TOKENS ─── */
+:root{
+  --b:#3a7bbf;
+  --bl:#c1d5ed;
+  --bd:#1a4f80;
+  --ink:#0d1b2a;
+  --muted:#4b5563;
+  --bg:#e8f3fb;
+  --s1:0 2px 8px rgba(13,27,42,.05),0 6px 20px rgba(58,123,191,.07);
+  --s2:0 8px 26px rgba(13,27,42,.08),0 14px 36px rgba(58,123,191,.1);
+  --s3:0 20px 50px rgba(13,27,42,.12),0 8px 24px rgba(58,123,191,.1);
+}
+
+/* ─── GRID BACKGROUND ─── */
+#grid{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,255,.74) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.74) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+#grid::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 22%,rgba(255,255,255,.52) 50%,transparent 78%);
+  background-size:300% 100%;
+  animation:sweep 8s ease-in-out infinite;
+}
+@keyframes sweep{0%{background-position:130% 0}100%{background-position:-130% 0}}
+
+/* grain overlay */
+#grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.013;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ─── HERO SECTION ─── */
+#hero{
+  position:relative;z-index:2;
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(5rem,11vh,8rem) clamp(1.25rem,5vw,2.5rem) clamp(4rem,8vh,6rem);
+  overflow:hidden;
+}
+
+/* top ambient glow */
+#hero::before{
+  content:'';position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+  width:min(880px,140%);height:560px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(58,123,191,.14) 0%,transparent 68%);
+  filter:blur(40px);pointer-events:none;
+  will-change:transform;contain:strict;
+}
+
+.hero-wrap{
+  position:relative;z-index:1;text-align:center;
+  width:100%;max-width:780px;margin-inline:auto;
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  contain:layout style;
+}
+
+/* ─── BADGE ─── */
+.badge{
+  display:inline-flex;align-items:center;gap:.42rem;
+  padding:.36rem .95rem;border-radius:999px;
+  background:rgba(255,255,255,.84);
+  border:1px solid rgba(58,123,191,.18);
+  backdrop-filter:blur(14px);
+  font-size:.75rem;font-weight:600;color:var(--ink);letter-spacing:.01em;
+  box-shadow:0 4px 14px rgba(13,27,42,.06),inset 0 1px 0 rgba(255,255,255,.9);
+  margin-bottom:clamp(1.4rem,3.5vh,2rem);
+  opacity:0;animation:fu .6s ease .06s forwards;
+}
+.badge-pip{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--b);flex-shrink:0;
+  animation:pip 2.4s ease-in-out infinite alternate;
+}
+@keyframes pip{from{opacity:.3;transform:scale(.7)}to{opacity:1;transform:scale(1.18)}}
+
+/* ─── H1 ─── */
+h1{
+  font-size:clamp(2.7rem,8.5vw,5.2rem);
+  font-weight:900;line-height:1.03;letter-spacing:-.045em;
+  margin-bottom:clamp(1.1rem,2.8vh,1.6rem);
+  opacity:0;animation:fu .7s ease .18s forwards;
+}
+.gt{
+  display:block;
+  background:linear-gradient(90deg,#0d1b2a 0%,#3a7bbf 28%,#c1d5ed 48%,#3a7bbf 68%,#0d1b2a 100%);
+  background-size:240% 100%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:tflow 8s linear infinite;
+}
+@keyframes tflow{from{background-position:0 50%}to{background-position:200% 50%}}
+.gd{display:block;color:var(--ink);}
+
+/* ─── SUBTITLE ─── */
+.sub{
+  font-size:clamp(.97rem,2.1vw,1.1rem);
+  color:var(--muted);line-height:1.74;
+  max-width:460px;
+  margin-bottom:clamp(1.8rem,4.5vh,2.6rem);
+  opacity:0;animation:fu .7s ease .3s forwards;
+}
+
+/* ─── BUTTONS ─── */
+.ctas{
+  display:flex;align-items:center;justify-content:center;
+  gap:.65rem;flex-wrap:wrap;
+  margin-bottom:.7rem;
+  opacity:0;animation:fu .7s ease .42s forwards;
+}
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  gap:.46rem;border-radius:999px;font-weight:700;font-size:.93rem;
+  cursor:pointer;text-decoration:none;white-space:nowrap;
+  border:none;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;
+  -webkit-tap-highlight-color:transparent;overflow:hidden;
+}
+/* primary */
+.btn-p{
+  padding:.9rem 2.1rem;font-size:.93rem;color:#fff;
+  background:linear-gradient(130deg,#c1d5ed,#3a7bbf,#c1d5ed);
+  background-size:300% 100%;background-position:0 50%;
+  border:1px solid rgba(58,123,191,.32);
+  box-shadow:0 12px 34px rgba(58,123,191,.3),inset 0 1px 0 rgba(255,255,255,.18);
+  animation:bpulse 5s ease-in-out infinite alternate;
+}
+@keyframes bpulse{from{background-position:0 50%}to{background-position:100% 50%}}
+.btn-p::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.15),transparent);pointer-events:none;
+}
+.btn-p::after{
+  content:'';position:absolute;top:50%;transform:translateY(-50%);
+  left:var(--bx,-40%);width:14%;height:64%;
+  background:rgba(212,231,245,.88);filter:blur(10px);opacity:.4;pointer-events:none;
+}
+.btn-p>*{position:relative;z-index:1;}
+.btn-p:hover{transform:translateY(-3px) scale(1.025);box-shadow:0 20px 44px rgba(58,123,191,.34);}
+.btn-p:active{transform:scale(.97);}
+/* ghost — clearly secondary */
+.btn-g{
+  padding:.74rem 1.5rem;font-size:.83rem;font-weight:600;
+  color:var(--b);
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(58,123,191,.22);
+  box-shadow:var(--s1);backdrop-filter:blur(8px);
+}
+.btn-g:hover{background:rgba(255,255,255,.96);border-color:rgba(58,123,191,.42);transform:translateY(-2px);box-shadow:var(--s2);}
+
+/* ─── URGENCY ─── */
+.urgency{
+  font-size:.72rem;font-weight:500;
+  color:rgba(58,123,191,.68);letter-spacing:.02em;
+  margin-bottom:clamp(1.6rem,4vh,2.6rem);
+  opacity:0;animation:fu .65s ease .5s forwards;
+}
+
+/* ─── PROOF STRIP ─── */
+.proof{
+  display:flex;align-items:stretch;justify-content:center;
+  flex-wrap:wrap;gap:0;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(193,213,237,.35);
+  border-radius:20px;
+  box-shadow:var(--s1);
+  backdrop-filter:blur(10px);
+  padding:.15rem 0;
+  width:100%;max-width:540px;
+  opacity:0;animation:fu .7s ease .56s forwards;
+}
+.pi{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:.9rem 1.5rem;flex:1;min-width:0;
+}
+.pn{
+  font-size:clamp(1.2rem,3vw,1.55rem);
+  font-weight:900;letter-spacing:-.048em;line-height:1;
+  background:linear-gradient(135deg,#0d1b2a 0%,#3a7bbf 52%,#c1d5ed 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.22rem;
+  /* counter default — visible before JS */
+  display:block;
+}
+.pl{
+  font-size:.7rem;font-weight:500;color:var(--muted);
+  white-space:nowrap;line-height:1.3;text-align:center;
+}
+.psep{
+  width:1px;align-self:stretch;
+  background:linear-gradient(180deg,transparent,rgba(58,123,191,.2),transparent);
+  flex-shrink:0;
+}
+
+/* ─── SEGMENTS BAR ─── */
+.segs{
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  margin-top:clamp(1.5rem,3.5vh,2.2rem);
+  opacity:0;animation:fu .65s ease .66s forwards;
+}
+.segs-label{
+  font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(13,27,42,.35);
+}
+.segs-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:.45rem;flex-wrap:wrap;
+}
+.seg{
+  padding:.28rem .72rem;border-radius:999px;
+  background:rgba(255,255,255,.68);
+  border:1px solid rgba(58,123,191,.14);
+  font-size:.7rem;font-weight:600;color:#0d1b2a;
+  box-shadow:0 1px 4px rgba(13,27,42,.04);
+  transition:background .18s ease,border-color .18s ease;
+}
+.seg:hover{background:rgba(255,255,255,.95);border-color:rgba(58,123,191,.3);}
+
+/* ─── KEYFRAMES ─── */
+@keyframes fu{
+  from{opacity:0;transform:translateY(20px);filter:blur(4px);}
+  to{opacity:1;transform:none;filter:none;}
+}
+
+/* ─── RESPONSIVE ─── */
+/* proof: flex on desktop, 3-col grid on tablet, 1-col on small mobile */
+@media(max-width:560px){
+  .proof{max-width:100%;}
+}
+@media(max-width:500px){
+  .proof{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border-radius:16px;padding:.1rem 0;
+    max-width:100%;
+  }
+  .psep{display:none;}
+  .pi{
+    padding:.7rem .5rem;
+    border-right:1px solid rgba(193,213,237,.25);
+  }
+  .pi:last-child{border-right:none;}
+  .pn{font-size:clamp(1rem,5vw,1.3rem);}
+  .pl{font-size:.64rem;white-space:normal;text-align:center;}
+}
+@media(max-width:360px){
+  .proof{grid-template-columns:1fr;}
+  .pi{
+    border-right:none!important;
+    border-bottom:1px solid rgba(193,213,237,.2);
+    padding:.6rem 1rem;
+  }
+  .pi:last-child{border-bottom:none;}
+  .ctas{flex-direction:column;align-items:stretch;}
+  .btn{justify-content:center;width:100%;}
+  .segs-row{gap:.35rem;}
+  .seg{font-size:.65rem;padding:.24rem .6rem;}
+}
+@media(hover:none){
+  .btn-p:hover,.btn-g:hover,.seg:hover{transform:none!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important;}
+  #grid::after{animation:none!important;}
+  .badge,.gt,h1,.sub,.ctas,.urgency,.proof,.segs{opacity:1!important;transform:none!important;filter:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div id="grid" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<section id="hero">
+<div class="hero-wrap">
+
+  <!-- Badge -->
+  <div class="badge">
+    <span class="badge-pip"></span>
+    Grupo Full10X
+  </div>
+
+  <!-- H1 -->
+  <h1>
+    <span class="gt">Mais ROI. Menos custo por lead.</span>
+    <span class="gd">Volume crescente de MQL & SQL Para Escalar Vendas no Comercial.</span>
+  </h1>
+
+  <!-- Subtitle — concise -->
+  <p class="sub">
+    Acelere o seu Negócio com Funis de Aquisição e processos estruturados — tudo operado por um CMO dentro do seu negócio. 
+  </p>
+
+  <!-- CTAs with clear hierarchy -->
+  <div class="ctas">
+    <a href="https://wa.me/5562999281417?text=Quero%20saber%20mais%20sobre%20a%20sua%20consultoria%21" target="_blank" rel="noopener noreferrer" class="btn btn-p">
+      <span>Quero saber mais</span>
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 7l5 5-5 5M6 12h12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <a href="#servicos" class="btn btn-g">Funis de Aquisição</a>
+  </div>
+
+  <!-- Urgency -->
+  <p class="urgency">Poucas Vagas &nbsp;·&nbsp; Oportunidade Exclusiva</p>
+
+  <!-- Proof strip — card style -->
+  <div class="proof">
+    <div class="pi">
+      <span class="pn" data-count="10" data-prefix="+R$" data-suffix=" Milhões">+R$10 Milhões</span>
+      <span class="pl">Em tráfego gerenciado</span>
+    </div>
+    <div class="psep" aria-hidden="true"></div>
+    <div class="pi">
+      <span class="pn" data-count="7" data-prefix="+" data-suffix=" dígitos">+7 dígitos</span>
+      <span class="pl">Faturados em negócios</span>
+    </div>
+    <div class="psep" aria-hidden="true"></div>
+    <div class="pi">
+      <span class="pn" data-count="6" data-suffix=" anos">6 anos</span>
+      <span class="pl">No mercado digital</span>
+    </div>
+  </div>
+
+  <!-- Segments -->
+  <div class="segs">
+    <span class="segs-label">Mercados atendidos</span>
+    <div class="segs-row">
+      <span class="seg">Mercado Financeiro</span>
+      <span class="seg">Fintech</span>
+      <span class="seg">Agências</span>
+      <span class="seg">E-commerce</span>
+      <span class="seg">Infoprodutos</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<script>
+(function(){
+  /* btn glow follow mouse */
+  var btns = document.querySelectorAll('.btn-p');
+  btns.forEach(function(btn){
+    var raf=null,prev=-999;
+    btn.addEventListener('mousemove',function(e){
+      if(raf)return;
+      raf=requestAnimationFrame(function(){
+        var r=btn.getBoundingClientRect();
+        var p=((e.clientX-r.left)/r.width)*100-8;
+        p=Math.max(0,Math.min(84,p));
+        if(Math.abs(p-prev)>=1.5){prev=p;btn.style.setProperty('--bx',p+'%');}
+        raf=null;
+      });
+    },{passive:true});
+  });
+
+  /* animated counters */
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries,obs){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;
+      var target=parseFloat(el.getAttribute('data-count'));
+      var prefix=el.getAttribute('data-prefix')||'';
+      var suffix=el.getAttribute('data-suffix')||'';
+      var dur=1800,t0=null,isInt=Number.isInteger(target);
+      function ease(t){return 1-Math.pow(1-t,3);}
+      requestAnimationFrame(function step(ts){
+        if(!t0)t0=ts;
+        var p=Math.min((ts-t0)/dur,1);
+        var v=ease(p)*target;
+        el.textContent=prefix+(isInt?Math.floor(v):v.toFixed(1))+suffix;
+        if(p<1)requestAnimationFrame(step);
+        else el.textContent=prefix+target+suffix;
+      });
+      obs.unobserve(el);
+    });
+  },{threshold:.5,rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.pn[data-count]').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
