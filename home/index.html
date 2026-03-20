@@ -75,12 +75,14 @@ body{
   width:min(880px,140%);height:560px;
   background:radial-gradient(ellipse at 50% 0%,rgba(58,123,191,.14) 0%,transparent 68%);
   filter:blur(40px);pointer-events:none;
+  will-change:transform;contain:strict;
 }
 
 .hero-wrap{
   position:relative;z-index:1;text-align:center;
   width:100%;max-width:780px;margin-inline:auto;
   display:flex;flex-direction:column;align-items:center;gap:0;
+  contain:layout style;
 }
 
 /* ─── BADGE ─── */
@@ -137,8 +139,9 @@ h1{
 }
 .btn{
   position:relative;display:inline-flex;align-items:center;justify-content:center;
-  gap:.46rem;border-radius:999px;font-weight:700;
-  cursor:pointer;text-decoration:none;white-space:nowrap;border:none;
+  gap:.46rem;border-radius:999px;font-weight:700;font-size:.93rem;
+  cursor:pointer;text-decoration:none;white-space:nowrap;
+  border:none;
   transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;
   -webkit-tap-highlight-color:transparent;overflow:hidden;
 }
@@ -178,7 +181,7 @@ h1{
 .urgency{
   font-size:.72rem;font-weight:500;
   color:rgba(58,123,191,.68);letter-spacing:.02em;
-  margin-bottom:clamp(1.8rem,4.5vh,2.8rem);
+  margin-bottom:clamp(1.6rem,4vh,2.6rem);
   opacity:0;animation:fu .65s ease .5s forwards;
 }
 
@@ -249,30 +252,44 @@ h1{
 }
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:520px){
+/* proof: flex on desktop, 3-col grid on tablet, 1-col on small mobile */
+@media(max-width:560px){
+  .proof{max-width:100%;}
+}
+@media(max-width:500px){
   .proof{
-    display:grid;grid-template-columns:1fr 1fr 1fr;
+    display:grid;grid-template-columns:repeat(3,1fr);
     border-radius:16px;padding:.1rem 0;
+    max-width:100%;
   }
   .psep{display:none;}
   .pi{
-    padding:.75rem .6rem;
-    border-right:1px solid rgba(193,213,237,.28);
+    padding:.7rem .5rem;
+    border-right:1px solid rgba(193,213,237,.25);
   }
   .pi:last-child{border-right:none;}
+  .pn{font-size:clamp(1rem,5vw,1.3rem);}
+  .pl{font-size:.64rem;white-space:normal;text-align:center;}
 }
-@media(max-width:400px){
+@media(max-width:360px){
   .proof{grid-template-columns:1fr;}
-  .pi{border-right:none!important;border-bottom:1px solid rgba(193,213,237,.22);padding:.65rem 1rem;}
+  .pi{
+    border-right:none!important;
+    border-bottom:1px solid rgba(193,213,237,.2);
+    padding:.6rem 1rem;
+  }
   .pi:last-child{border-bottom:none;}
   .ctas{flex-direction:column;align-items:stretch;}
-  .btn{justify-content:center;}
+  .btn{justify-content:center;width:100%;}
+  .segs-row{gap:.35rem;}
+  .seg{font-size:.65rem;padding:.24rem .6rem;}
 }
 @media(hover:none){
   .btn-p:hover,.btn-g:hover,.seg:hover{transform:none!important;}
 }
 @media(prefers-reduced-motion:reduce){
-  *,#grid::after{animation:none!important;transition-duration:.01ms!important;}
+  *{animation:none!important;transition-duration:.01ms!important;}
+  #grid::after{animation:none!important;}
   .badge,.gt,h1,.sub,.ctas,.urgency,.proof,.segs{opacity:1!important;transform:none!important;filter:none!important;}
 }
 </style>
@@ -304,7 +321,7 @@ h1{
 
   <!-- CTAs with clear hierarchy -->
   <div class="ctas">
-    <a href="https://wa.me/5562999281417" target="_blank" rel="noopener noreferrer" class="btn btn-p">
+    <a href="https://wa.me/5562999281417?text=Quero%20saber%20mais%20sobre%20a%20sua%20consultoria%21" target="_blank" rel="noopener noreferrer" class="btn btn-p">
       <span>Quero saber mais</span>
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M13 7l5 5-5 5M6 12h12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -319,7 +336,7 @@ h1{
   <!-- Proof strip — card style -->
   <div class="proof">
     <div class="pi">
-      <span class="pn" data-count="10" data-prefix="+R$" data-suffix="M">+R$10M</span>
+      <span class="pn" data-count="10" data-prefix="+R$" data-suffix=" Milhões">+R$10 Milhões</span>
       <span class="pl">Em tráfego gerenciado</span>
     </div>
     <div class="psep" aria-hidden="true"></div>
@@ -378,14 +395,14 @@ h1{
       var suffix=el.getAttribute('data-suffix')||'';
       var dur=1800,t0=null,isInt=Number.isInteger(target);
       function ease(t){return 1-Math.pow(1-t,3);}
-      (function step(ts){
+      requestAnimationFrame(function step(ts){
         if(!t0)t0=ts;
         var p=Math.min((ts-t0)/dur,1);
         var v=ease(p)*target;
         el.textContent=prefix+(isInt?Math.floor(v):v.toFixed(1))+suffix;
         if(p<1)requestAnimationFrame(step);
         else el.textContent=prefix+target+suffix;
-      })(performance.now());
+      });
       obs.unobserve(el);
     });
   },{threshold:.5,rootMargin:'0px 0px -10% 0px'});
